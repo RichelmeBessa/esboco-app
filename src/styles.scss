@@ -9,6 +9,10 @@ body {
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
 
+* {
+  box-sizing: border-box;
+}
+
 table {
   width: 100%;
 }
@@ -21,9 +25,27 @@ table {
   flex-direction: row;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+@media(min-width: 768px){
+  .flex-md-row {
+    flex-direction: row;
+  }
+}
+
 .justify-content-flex-end {
   justify-content: flex-end;
 }
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}  
 
 .ml-auto {
   margin-left: auto;
@@ -43,4 +65,52 @@ table {
 
 ul li {
   list-style: none;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.page-header {
+  background-color: #4567a2;
+  padding-top: 1em;
+  padding-bottom: 6em;
+
+  .title {
+    color: white;
+    padding: 1em;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .search-wrapper {
+    padding: 0 1.2em;
+    background-color: white;
+    border-radius: 2.3em;
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      vertical-align: middle;
+      color: rgba(0, 0, 0, 0.397);
+    }
+
+    input {
+      border: none;
+      padding: 1em;
+      outline: none;
+      width: 100%;
+    }
+  }
+
+  .actions {
+    padding: 1em;
+  }
+}
+
+.page-content {
+  padding: 1em;
+  margin-top: -5.6em;
 }
