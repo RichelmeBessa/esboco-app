@@ -17,8 +17,16 @@ table {
   width: 100%;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 .d-flex {
   display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .flex-row {
@@ -33,6 +41,10 @@ table {
   .flex-md-row {
     flex-direction: row;
   }
+  
+  .w-md-50 {
+    width: 50%;
+  }
 }
 
 .justify-content-flex-end {
@@ -41,6 +53,10 @@ table {
 
 .justify-content-between {
   justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 .align-items-center {
@@ -62,6 +78,7 @@ table {
 .p-3 {
   padding: 1em;
 }
+
 
 ul li {
   list-style: none;

@@ -1,34 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared.module';
+import { CompanyFormPage } from './company.form.page';
 import { Routes, RouterModule } from '@angular/router';
-import { CompaniesPage } from './companies.components';
 
 const routes: Routes = [
   {
     path: '',
-    component: CompaniesPage
-  },
-  {
-    path: 'new',
-    loadChildren: './company-form/company-form.module#CompanyFormModule'
-  },
-  {
-    path: ':id',
-    loadChildren: './company-form/company-form.module#CompanyFormModule'
+    component: CompanyFormPage
   }
-];
+]
 
 @NgModule({
-  declarations: [CompaniesPage],
+  declarations: [CompanyFormPage],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
     SharedModule
   ]
 })
 
-export class CompaniesModule {
+export class CompanyFormModule { 
 
 }
-

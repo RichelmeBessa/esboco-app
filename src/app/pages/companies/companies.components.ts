@@ -2,18 +2,13 @@ import { OnInit, Component, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { Company } from 'src/app/models/company.model';
+import { CompaniesService } from 'src/app/services/companies.service';
 
-export interface CompaniesList {
-  id: String;
-  registeredName: String;
-  tradingName: String;
-  taxPayerRegistration: String;
-  stateSubscription: String;
-}
 
-const ELEMENT_DATA: CompaniesList[] = [
-  { id: '1', registeredName: 'Hydrogen', tradingName: '', taxPayerRegistration: 'H', stateSubscription: '' },
-  { id: '2', registeredName: 'Helium', tradingName: '4.0026', taxPayerRegistration: 'He', stateSubscription: '' },
+const ELEMENT_DATA: Company[] = [
+  { id: '1', registeredName: 'Apple', tradingName: 'Apple Inc', taxPayerRegistration: 'H', stateSubscription: '' },
+  { id: '2', registeredName: 'Kodak', tradingName: 'Eastman Kodak Company', taxPayerRegistration: 'He', stateSubscription: '' },
   { id: '3', registeredName: 'Lithium', tradingName: '6.941', taxPayerRegistration: 'Li', stateSubscription: '' },
   { id: '4', registeredName: 'Beryllium', tradingName: '9.0122', taxPayerRegistration: 'Be', stateSubscription: '' },
   { id: '5', registeredName: 'Boron', tradingName: '0.811', taxPayerRegistration: 'B', stateSubscription: '' },
@@ -31,18 +26,22 @@ const ELEMENT_DATA: CompaniesList[] = [
 })
 export class CompaniesPage implements OnInit {
   displayedColumns: string[] = ['id', 'registeredName', 'tradingName', 'taxPayerRegistration', 'stateSubscription'];
-  dataSource:MatTableDataSource<CompaniesList> ;
+  dataSource:MatTableDataSource<Company> ;
   
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() {
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-  }
-
+  constructor(private companyService: CompaniesService) { }
+  
   ngOnInit() {
+    this.dataSource = new MatTableDataSource();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+    this.companyService.fetchedCompanies().subscribe(data => {
+      console.log(data);
+      this.dataSource.data = data;
+    });
   }
 
   applyFilter(event: Event) {
@@ -53,4 +52,5 @@ export class CompaniesPage implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  
 }

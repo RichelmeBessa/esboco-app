@@ -1,0 +1,56 @@
+<div class="page-header">
+  <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+    <div class="title">
+      <h2 class="card-title">{{ editMode ? 'Edit' : 'Nova' }} Produtos</h2>
+    </div>
+  </div>
+</div>
+<div class="page-content">
+  <mat-card>
+    <div class="table-responsive">
+      <form [formGroup]="form">
+        <div class="d-flex flex-wrap">
+          <div class="form-group p-1 w-100 w-md-50">
+            <label for="registeredName">Razão Social</label>
+            <input class="form-control" type="text" id="registeredName" formControlName="registeredName">
+            <small *ngIf="form.get('registeredName').invalid && form.get('registeredName').touched">Invalid
+              Field</small>
+          </div>
+          <div class="form-group p-1 w-100 w-md-50">
+            <label for="tradingName">Nome Fantasia</label>
+            <input class="form-control" type="text" id="tradingName" formControlName="tradingName">
+            <small *ngIf="form.get('tradingName').invalid && form.get('tradingName').touched"> Invalid Field</small>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap">
+          <div class="form-group p-1 w-100 w-md-50">
+            <div class="col">
+              <label for="taxPayerRegistration">CNPJ</label>
+              <input class="form-control" type="text" id="taxPayerRegistration" formControlName="taxPayerRegistration">
+              <small
+                *ngIf="form.get('taxPayerRegistration').invalid && form.get('taxPayerRegistration').touched">Invalid
+                Field</small>
+            </div>
+          </div>
+          <div class="form-group p-1 w-100 w-md-50">
+            <div class="col">
+              <label for="stateSubscription">Inscrição Estadual</label>
+              <input class="form-control" type="text" id="stateSubscription" formControlName="stateSubscription">
+              <small *ngIf="form.get('stateSubscription').invalid && form.get('stateSubscription').touched"> Invalid
+                Field</small>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex justify-content-flex-end mr-3 mb-3">
+      <div class="p-1">
+        <button mat-flat-button color="warn" routerLink="/admin/companies">Cancelar</button>
+      </div>
+      <div class="p-1">
+        <button mat-flat-button color="primary" [disabled]="form.invalid" (click)="addCompany()">
+          {{ editMode ? 'SaveChanges' : 'Add' }}</button>
+      </div>
+    </div>
+  </mat-card>
+</div>
