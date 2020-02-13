@@ -25,7 +25,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule
-  ]
+  ],
+ 
 })
 
 export class CompaniesModule {

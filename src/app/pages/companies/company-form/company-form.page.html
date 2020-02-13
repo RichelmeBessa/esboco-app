@@ -8,7 +8,7 @@
 <div class="page-content">
   <mat-card>
     <div class="table-responsive">
-      <form [formGroup]="form">
+      <form [formGroup]="form" *ngIf="!isLoading">
         <div class="d-flex flex-wrap">
           <div class="form-group p-1 w-100 w-md-50">
             <label for="registeredName">Razão Social</label>
@@ -45,11 +45,11 @@
     </div>
     <div class="d-flex justify-content-flex-end mr-3 mb-3">
       <div class="p-1">
-        <button mat-flat-button color="warn" routerLink="/admin/companies">Cancelar</button>
+        <button mat-flat-button color="warn" routerLink="/companies">Cancelar</button>
       </div>
       <div class="p-1">
-        <button mat-flat-button color="primary" [disabled]="form.invalid" (click)="addCompany()">
-          {{ editMode ? 'SaveChanges' : 'Add' }}</button>
+        <button mat-flat-button color="primary" [disabled]="!form || form.invalid" (click)="addCompany()">
+          {{ editMode ? 'Salvar' : 'Add' }}</button>
       </div>
     </div>
   </mat-card>

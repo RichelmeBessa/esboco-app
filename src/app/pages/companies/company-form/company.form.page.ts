@@ -15,6 +15,7 @@ export class CompanyFormPage implements OnInit {
   form: FormGroup;
   editMode = false;
   company: Company;
+  isLoading = false;
 
   constructor(
     private companyService: CompaniesService,
@@ -26,13 +27,15 @@ export class CompanyFormPage implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
       if (paramMap.has('id')) {
         this.editMode = true;
+        this.isLoading = true;
 
         this.companyService.getCompany(paramMap.get('id')).subscribe(company => {
           this.company = company;
           this.initForm();
+          this.isLoading = false;
         });
       } else {
-        this.initForm()
+        this.initForm();
       }
     })
   }
@@ -69,7 +72,7 @@ export class CompanyFormPage implements OnInit {
     };
 
     this.companyService.addCompany(value).subscribe(() => {
-      this.router.navigate(['/admin', 'companies']);
+      this.router.navigate(['companies']);
     });
   }
 }

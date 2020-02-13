@@ -10,7 +10,7 @@ import { Company } from '../models/company.model';
 export class CompaniesService {
 
 
-  private baseUrl = 'http://localhost:8080/companies';
+  private baseUrl = 'http://192.168.0.16:8080/companies';
 
   constructor(private http: HttpClient) { }
 

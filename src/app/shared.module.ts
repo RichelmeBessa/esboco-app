@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,10 +14,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { ErrorMessageComponent } from './components/error-message.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ErrorMessageComponent],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -31,7 +35,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    MatTooltipModule
   ],
   exports: [
     MatSidenavModule,
@@ -46,7 +52,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
-    MatCheckboxModule
-  ]
+    MatCheckboxModule,
+    MatDialogModule,
+    MatTooltipModule
+  ],
+  entryComponents: [ErrorMessageComponent]
 })
 export class SharedModule { }

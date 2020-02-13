@@ -15,6 +15,13 @@ body {
 
 table {
   width: 100%;
+  tbody {
+    td {
+      padding-top: 0.5em !important;
+      padding-right: 1em !important;
+      padding-bottom: 0.5em !important;
+    }
+  }
 }
 
 .w-100 {
