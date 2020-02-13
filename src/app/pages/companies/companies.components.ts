@@ -1,7 +1,7 @@
 import { OnInit, Component, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Company } from 'src/app/models/company.model';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,18 +18,17 @@ export class CompaniesPage implements OnInit {
   displayedColumns: string[] = [
     'id', 'registeredName', 'tradingName', 'taxPayerRegistration', 'stateSubscription', 'actions'
   ];
-  dataSource:MatTableDataSource<Company> ;
-  
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  dataSource: MatTableDataSource<Company>;
 
-  companies: Company[];
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
 
   constructor(
     private companyService: CompaniesService,
     private dialog: MatDialog
   ) { }
-  
+
   ngOnInit() {
     this.dataSource = new MatTableDataSource();
     this.dataSource.paginator = this.paginator;
@@ -60,8 +59,10 @@ export class CompaniesPage implements OnInit {
 
   deleteCompany(id: string) {
     this.companyService.deleteCompany(id).subscribe(response => {
-      this.companies = this.companies.filter(company => company.id !== response.id);
+      this.dataSource.data = this.dataSource.data.filter(company => {
+        return company.id !== response.id;
+      });
     });
   }
-  
+
 }
