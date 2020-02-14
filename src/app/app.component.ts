@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './pages/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,19 @@ export class AppComponent implements OnInit {
 
   mode = 'side';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
+  
   ngOnInit(): void {
     this.down();
-  }
 
+    if (!this.authService.authenticated) {
+      this.opened = false;
+    }
+
+    
+  }
+  
   SideBarToggler() {
     this.opened = !this.opened;
   }
@@ -40,6 +48,11 @@ export class AppComponent implements OnInit {
       this.opened = false;
     }
     this.router.navigate([url]);
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate([`/auth`])
   }
 }
 

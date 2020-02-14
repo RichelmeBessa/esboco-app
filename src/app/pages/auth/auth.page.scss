@@ -1,0 +1,67 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2em;
+  background: url(/assets/background-login.jpeg) center;
+  
+  mat-card {
+    width: 100%;
+    max-width: 350px;
+    background-color: rgba(255, 255, 255, 0.29);
+    border-radius: 10px;
+    box-shadow: none;
+  
+    mat-card-content {
+      margin-bottom: 0;
+
+
+      .icon-wrapper {
+        background-color:rgba($color: #3F51B5, $alpha: 0.8);
+        border-radius: 50%;
+        padding: 0.5em;
+        margin-top: -4.4em;
+
+        mat-icon {
+          width: 100%;
+          font-size: 75px;
+          color: white;
+        }
+      }
+
+      h2 {
+        color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        text-align: center;
+      }
+
+      .form-group {
+        padding: 0.9em;
+        display: flex;
+        background-color: white;
+        margin: 0.5em;
+        border-radius: 0.6em;
+
+        mat-icon {
+          color: rgba(0, 0, 0, 0.7);
+
+        }
+  
+        input {
+          margin-left: 0.8em;
+          width: 100%;
+          outline: none;
+          border:  none;
+        }
+      }
+
+      small {
+        color: red;
+        margin-left: 1em;
+      }
+    } 
+  }
+}
+
+

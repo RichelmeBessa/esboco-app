@@ -22,25 +22,6 @@
             <small *ngIf="form.get('tradingName').invalid && form.get('tradingName').touched"> Invalid Field</small>
           </div>
         </div>
-        <div class="d-flex flex-wrap">
-          <div class="form-group p-1 w-100 w-md-50">
-            <div class="col">
-              <label for="taxPayerRegistration">CNPJ</label>
-              <input class="form-control" type="text" id="taxPayerRegistration" formControlName="taxPayerRegistration">
-              <small
-                *ngIf="form.get('taxPayerRegistration').invalid && form.get('taxPayerRegistration').touched">Invalid
-                Field</small>
-            </div>
-          </div>
-          <div class="form-group p-1 w-100 w-md-50">
-            <div class="col">
-              <label for="stateSubscription">Inscrição Estadual</label>
-              <input class="form-control" type="text" id="stateSubscription" formControlName="stateSubscription">
-              <small *ngIf="form.get('stateSubscription').invalid && form.get('stateSubscription').touched"> Invalid
-                Field</small>
-            </div>
-          </div>
-        </div>
       </form>
     </div>
     <div class="d-flex justify-content-flex-end mr-3 mb-3">

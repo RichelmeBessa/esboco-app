@@ -1,11 +1,11 @@
-<header>
+<header *ngIf="authService.authenticated">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="SideBarToggler()">
         <mat-icon>menu</mat-icon>
       </button>
 
-      <span>FARMACIA TRABALHADOR POPULAR</span>
+      <h6>Farmácia Trabalhador Popular</h6>
 
       <div class="d-flex flex-row justify-content-flex-end ml-auto">
         <ul class="d-flex flex-row">
@@ -24,7 +24,7 @@
               <mat-icon>person_outline</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>
+              <button mat-menu-item (click)="logout()">
                 <mat-icon id="exit">exit_to_app</mat-icon>
                 Logout
               </button>
@@ -41,9 +41,10 @@
     <mat-nav-list>
       <div class="profile-card">
         <div class="header">
-          <h2>Farmacia Trab Popular</h2>
-          <h4>farmacia@farmacia.com</h4>
-          <img src="https://avatars0.githubusercontent.com/u/56001765?s=460&v=4" alt="">
+          <h3>Farmácia Trabalhador Popular</h3>
+          <h4>Rede social: </h4>
+          <h5>farmtrabalhadorpopular</h5>
+          <img src="https://instagram.ffor15-1.fna.fbcdn.net/v/t51.2885-19/s150x150/59352395_635193613614379_2163918937358598144_n.jpg?_nc_ht=instagram.ffor15-1.fna.fbcdn.net&_nc_ohc=hwNa5_iRurIAX_PFdsw&oh=d8ddc8d489472706d8951132507246c7&oe=5ECEFC53" alt="">
         </div>
       </div>
       <mat-divider></mat-divider>
@@ -54,7 +55,7 @@
       </a>
       <a mat-list-item routerLinkActive="mat-list-active" (click)="navigate('/companies')">
         <mat-icon>business</mat-icon>
-        Companies
+        Products
       </a>
     </mat-nav-list>
   </mat-drawer>
